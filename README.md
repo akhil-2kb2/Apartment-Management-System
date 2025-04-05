@@ -4,7 +4,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Java-17-blue.svg"/>
   <img src="https://img.shields.io/badge/Spring_Boot-3.2-green.svg"/>
-  <img src="https://img.shields.io/badge/Next.js-14-black.svg"/>
+  <img src="https://img.shields.io/badge/Next.js-15-black.svg"/>
   <img src="https://img.shields.io/badge/TailwindCSS-4.0-blue.svg"/>
 </p>
 
@@ -22,31 +22,90 @@ The **Apartment Management System** is a full-stack web application designed to 
 
 ---
 
-## 🗂️ Project Structure
+### 🧱 Backend – Spring Boot + Gradle
 
-## 🧱 Backend Structure – Spring Boot (Gradle)
-apartment-management-system/ └── backend/ ├── src/main/java/com/ams/ │ ├── config/ # Security Configuration │ │ └── SecurityConfig.java │ ├── controller/ # REST Controllers │ │ ├── ApartmentController.java │ │ ├── AuthController.java │ │ ├── DriverController.java │ │ ├── EntryExitController.java │ │ ├── FamilyMemberController.java │ │ ├── OwnerController.java │ │ ├── TenantController.java │ │ ├── VehicleController.java │ │ └── VisitorController.java │ ├── dto/ # DTOs for request/response │ ├── entity/ # JPA Entity Models │ ├── exception/ # GlobalExceptionHandler.java │ ├── filter/ # JwtAuthenticationFilter.java │ ├── repository/ # Spring Data Repositories │ ├── service/ # Business Logic │ ├── util/ # JwtUtil.java, PasswordGenerator.java │ ├── App.java │ └── ApartmentManagementSystemApplication.java ├── src/main/resources/ │ ├── application.properties └── request.rest # Postman-like REST test scripts
+```bash
+apartment-management-system/
+└── backend/
+    ├── src/
+    │   └── main/
+    │       ├── java/
+    │       │   └── com/ams/
+    │       │       ├── config/             # Security Configurations
+    │       │       ├── controller/         # REST API Controllers
+    │       │       ├── dto/                # DTOs for API I/O
+    │       │       ├── entity/             # JPA Entities
+    │       │       ├── exception/          # Global Exception Handling
+    │       │       ├── filter/             # JWT Filter
+    │       │       ├── repository/         # Spring Data JPA Repos
+    │       │       ├── service/            # Business Logic
+    │       │       ├── util/               # JWT Utils & Helpers
+    │       │       └── ApartmentManagementSystemApplication.java
+    │       └── resources/
+    │           └── application.properties
+    └── request.rest                       # IntelliJ HTTP Client Tests
+
+
+
 ---
 
+---
+
+And for the **Frontend structure** under `💻 Frontend – Next.js 14 + Tailwind CSS 4`, use this:
+
+```md
+### 💻 Frontend – Next.js 14 + Tailwind CSS 4
+
+```bash
+apartment-management-system/
+└── frontend/
+    ├── public/
+    └── src/
+        ├── app/                 # Next.js App Router Pages
+        │   ├── layout.tsx
+        │   └── page.tsx
+        ├── components/          # Reusable UI Components (Navbar, Sidebar)
+        ├── features/            # Module-wise Logic & Pages
+        │   ├── apartments/
+        │   ├── owners/
+        │   ├── tenants/
+        │   ├── vehicles/
+        │   ├── visitors/
+        │   ├── drivers/
+        │   ├── familyMembers/
+        │   └── auth/
+        ├── services/            # API Wrappers
+        ├── shared/              # Hooks, Constants, Utilities
+        └── context/             # Global State (App + Auth Context)
+    ├── tailwind.config.js
+    ├── postcss.config.mjs
+    ├── tsconfig.json
+    └── package.json
+
 
 ---
 
-## 💻 Frontend Structure – Next.js 14 + Tailwind CSS 4
+✅ **Result**: This formatting ensures the folder structure is:
+- Rendered in **monospace**
+- **Indented properly**
+- Comments are aligned and readable
+- GitHub will display it **exactly as intended**
 
-apartment-management-system/ └── frontend/ ├── public/ ├── src/ │ ├── app/ # Next.js App Router │ │ ├── page.tsx, layout.tsx │ ├── features/ │ │ ├── apartments/ │ │ ├── owners/ │ │ ├── tenants/ │ │ ├── vehicles/ │ │ ├── visitors/ │ │ ├── drivers/ │ │ ├── familyMembers/ │ │ └── auth/ │ ├── components/ # Shared UI (Sidebar, Navbar, etc.) │ ├── services/ # Centralized API Wrappers │ ├── shared/ # Utils, Hooks, Constants │ ├── context/ # App & Auth Context ├── tailwind.config.js ├── postcss.config.mjs ├── tsconfig.json ├── package.json
+Let me know if you want this turned into collapsible `<details>` blocks or want GitHub stats/badges on top too!
+
 
 ## 💡 Features
 
 | Module           | Description                                                   | Access Roles                        |
 |------------------|---------------------------------------------------------------|-------------------------------------|
 | 👤 Auth           | Admin creates Secretary, Secretary creates Security          | Admin > Secretary > Security        |
-| 🏢 Apartment       | Manage apartments, link to owners/tenants                    | Secretary                           |
+| 🏢 Apartment      | Manage apartments, link to owners/tenants                    | Secretary                           |
 | 👨 Owner          | Manage owners, assign apartments, auto-create self as family | Secretary                           |
 | 👩 Tenant         | Manage tenants, assign apartments                            | Secretary                           |
 | 🚗 Vehicle        | Assign vehicles to visitor, owner, tenant, or family         | Secretary, Security (view)          |
 | 🙋 Visitor        | Check-in/out visitor, link vehicle if applicable             | Security                            |
 | 📋 Entry/Exit     | Logs for vehicles & drivers for all user types               | Security                            |
-| 👨‍👩‍👧‍👦 FamilyMember | Auto-managed via owner/tenant creation                      | Secretary                           |
+| 👨‍👩‍👧‍👦 FamilyMember   | Auto-managed via owner/tenant creation                       | Secretary                           |
 | 🚙 Driver         | Manage entry drivers (linked to vehicle log)                 | Secretary                           |
 
 ---
@@ -110,52 +169,85 @@ request.rest — Run with IntelliJ HTTP Client
 
 ✅ Status: All endpoints tested manually & integrated
 
-🧰 Tech Stack
-Category	Tech
-Backend	Java 17, Spring Boot, Spring Security
-Database	MySQL
-Frontend	Next.js 14 (App Router), React, TypeScript
-Styling	Tailwind CSS 4
-Auth	JWT, Role-based Access Control
-Build Tools	Gradle, npm
-🧱 Database Schema (MySQL)
-users, user_roles, owners, tenants, apartments
+---
 
-visitors, vehicles, drivers, entry_exit_logs
+## 🧰 Tech Stack
 
-family_members (linked via owner_id or tenant_id)
+Here’s what powers the Apartment Management System 👇
+
+| 🔧 Category     | 💻 Technology                                         |
+|----------------|--------------------------------------------------------|
+| **Backend**    | Java 17, Spring Boot 3, Spring Security, Gradle        |
+| **Frontend**   | Next.js 14 (App Router), React 18, TypeScript          |
+| **Styling**    | Tailwind CSS 4, PostCSS                                |
+| **Database**   | MySQL                                                  |
+| **Authentication** | JWT (JSON Web Token), Role-Based Access Control |
+| **Dev Tools**  | IntelliJ IDEA, VS Code, Postman, REST Client           |
+| **Build Tools**| Gradle, npm                                            |
+| **API Design** | RESTful APIs, DTO Mappings                             |
+| **Version Control** | Git, GitHub                                      |
+
+---
+
+## 🧪 Testing
+
+> All modules have been **manually tested** end-to-end.  
+> You can also use the built-in `.rest` file for automated testing in IntelliJ.
+
+<details>
+  <summary>🧪 How to Test Using IntelliJ HTTP Client</summary>
+
+1. Open `request.rest` from the `/backend` folder.
+2. IntelliJ will display clickable REST buttons beside each request.
+3. Hit send and test responses from your running backend server.
+4. Verify JWT tokens, response structures, and error handling.
+
+</details>
+
+✅ **Validated Features:**
+
+- Role-based authentication and login
+- CRUD operations for Apartment, Owner, Tenant, Vehicle, Visitor
+- Entry/Exit log tracking
+- Auto-mapping of family members
+- Secure endpoints with token validation
+- Error & Exception handling with meaningful messages
+
+---
+
+## 👨‍💻 Author
+
+Developed with ❤️ by:
+
+### **Akhilesh Yadav**  
+**Full Stack Java Developer** | Passionate about Modern Architecture & Clean Code
+
+- 🧠 Believer in solving real-world problems with code  
+- 🔄 Obsessed with modularity, reusability & clean architecture  
+- 📫 Connect with me: [LinkedIn](https://www.linkedin.com/in/akhileshyadavak2kb2/)  
+- 🌐 Portfolio: [your-portfolio-link.com]()  
+- 🐙 GitHub: [github.com](https://github.com/akhil-2kb2)
+
+---
+
+
 
 🔮 Future Enhancements
 📊 Admin dashboard with charts
-
 📸 Visitor photo capture
-
 🧠 AI-based occupancy prediction
-
 🛠️ PWA mobile app integration
 
 📄 License
 MIT © 2025 – Akhilesh Yadav
 
 👨‍💻 Author
-Developed with ❤️ by Akhilesh Yadav
+Developed with ❤️ by Akhilesh Yadav 
 Full Stack Java Developer | Passionate about Modern Architecture & Clean Code
 
 🚀 Ready to scale your apartment administration? Clone this repo and get started today!
 
-yaml
-Copy
-Edit
-
 ---
-
-### ✅ Now What?
-
-- Save as `README.md`
-- Add `LICENSE`, `.gitignore`, and `.env.example` if needed
-- Let me know when you're ready to go module-by-module frontend ✨
-
-Let’s keep crushing it 🚀
 
 
 
