@@ -24,8 +24,16 @@ The **Apartment Management System** is a full-stack web application designed to 
 
 ## 🗂️ Project Structure
 
+## 🧱 Backend Structure – Spring Boot (Gradle)
+apartment-management-system/ └── backend/ ├── src/main/java/com/ams/ │ ├── config/ # Security Configuration │ │ └── SecurityConfig.java │ ├── controller/ # REST Controllers │ │ ├── ApartmentController.java │ │ ├── AuthController.java │ │ ├── DriverController.java │ │ ├── EntryExitController.java │ │ ├── FamilyMemberController.java │ │ ├── OwnerController.java │ │ ├── TenantController.java │ │ ├── VehicleController.java │ │ └── VisitorController.java │ ├── dto/ # DTOs for request/response │ ├── entity/ # JPA Entity Models │ ├── exception/ # GlobalExceptionHandler.java │ ├── filter/ # JwtAuthenticationFilter.java │ ├── repository/ # Spring Data Repositories │ ├── service/ # Business Logic │ ├── util/ # JwtUtil.java, PasswordGenerator.java │ ├── App.java │ └── ApartmentManagementSystemApplication.java ├── src/main/resources/ │ ├── application.properties └── request.rest # Postman-like REST test scripts
+---
+
 
 ---
+
+## 💻 Frontend Structure – Next.js 14 + Tailwind CSS 4
+
+apartment-management-system/ └── frontend/ ├── public/ ├── src/ │ ├── app/ # Next.js App Router │ │ ├── page.tsx, layout.tsx │ ├── features/ │ │ ├── apartments/ │ │ ├── owners/ │ │ ├── tenants/ │ │ ├── vehicles/ │ │ ├── visitors/ │ │ ├── drivers/ │ │ ├── familyMembers/ │ │ └── auth/ │ ├── components/ # Shared UI (Sidebar, Navbar, etc.) │ ├── services/ # Centralized API Wrappers │ ├── shared/ # Utils, Hooks, Constants │ ├── context/ # App & Auth Context ├── tailwind.config.js ├── postcss.config.mjs ├── tsconfig.json ├── package.json
 
 ## 💡 Features
 
@@ -56,6 +64,101 @@ The **Apartment Management System** is a full-stack web application designed to 
 
 ### 📦 Backend – Spring Boot + Gradle
 
+
+---
+
+## ⚙️ How to Run
+
+### 📦 Backend Setup
+
 ```bash
 cd backend
 ./gradlew bootRun
+
+
+
+App runs on: http://localhost:3000
+
+🔐 Authentication & Roles
+Role	Can Create	Can Manage	Can View Everything
+ADMIN	SECRETARY	-	✅
+SECRETARY	SECURITY	Owners, Tenants, Vehicles, Families	✅
+SECURITY	—	Entry/Exit logs, Visitors, Drivers	✅
+🔑 Authentication handled using JWT, with secure login and role mapping.
+
+✅ Key Features
+📋 Role-Based Registration & Login
+
+🏘️ Apartment CRUD
+
+👤 Owner & Tenant Management
+
+🚗 Vehicle linked to Visitor/Owner/Tenant/Family
+
+🛂 Visitor Check-in/Check-out
+
+🚦 Entry/Exit Logs (Driver + Vehicle)
+
+👨‍👩‍👧‍👦 FamilyMember Auto-create
+
+📎 Validation & Exception Handling
+
+🌐 REST APIs + DTO Model Mapping
+
+🧪 Testing
+request.rest — Run with IntelliJ HTTP Client
+
+✅ Status: All endpoints tested manually & integrated
+
+🧰 Tech Stack
+Category	Tech
+Backend	Java 17, Spring Boot, Spring Security
+Database	MySQL
+Frontend	Next.js 14 (App Router), React, TypeScript
+Styling	Tailwind CSS 4
+Auth	JWT, Role-based Access Control
+Build Tools	Gradle, npm
+🧱 Database Schema (MySQL)
+users, user_roles, owners, tenants, apartments
+
+visitors, vehicles, drivers, entry_exit_logs
+
+family_members (linked via owner_id or tenant_id)
+
+🔮 Future Enhancements
+📊 Admin dashboard with charts
+
+📸 Visitor photo capture
+
+🧠 AI-based occupancy prediction
+
+🛠️ PWA mobile app integration
+
+📄 License
+MIT © 2025 – Akhilesh Yadav
+
+👨‍💻 Author
+Developed with ❤️ by Akhilesh Yadav
+Full Stack Java Developer | Passionate about Modern Architecture & Clean Code
+
+🚀 Ready to scale your apartment administration? Clone this repo and get started today!
+
+yaml
+Copy
+Edit
+
+---
+
+### ✅ Now What?
+
+- Save as `README.md`
+- Add `LICENSE`, `.gitignore`, and `.env.example` if needed
+- Let me know when you're ready to go module-by-module frontend ✨
+
+Let’s keep crushing it 🚀
+
+
+
+
+
+
