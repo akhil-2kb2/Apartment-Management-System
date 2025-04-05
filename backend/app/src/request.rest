@@ -1,0 +1,699 @@
+# curl -X POST http://localhost:8080/auth/register \
+#   -H "Content-Type: application/json" \
+#   -d '{
+#     "username": "admin",
+#     "password": "pass123",
+#     "roles": ["ROLE_ADMIN"],
+#     "isActive": true
+# }'
+
+# curl -X POST http://localhost:8080/auth/login \
+#   -H "Content-Type: application/json" \
+#   -d '{
+#     "username": "admin",
+#     "password": "admin123"
+# }'
+
+# curl -X POST http://localhost:8080/auth/register \
+#   -H "Content-Type: application/json" \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTc0MzYyNjc4NywiaWF0IjoxNzQzNTQwMzg3fQ.w22JVJ7_JwYIhROX3_-UtIeaUXY-n5ESj4j-G6tKslw" \
+#   -d '{
+#     "username": "secretary1",
+#     "password": "sec123",
+#     "roles": ["ROLE_SECRETARY"],
+#     "isActive": true
+# }'
+
+# curl -X POST http://localhost:8080/auth/register \
+#   -H "Content-Type: application/json" \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTc0MzYyNjc4NywiaWF0IjoxNzQzNTQwMzg3fQ.w22JVJ7_JwYIhROX3_-UtIeaUXY-n5ESj4j-G6tKslw" \
+#   -d '{
+#     "username": "secretary2",
+#     "password": "sec123",
+#     "roles": ["ROLE_SECRETARY"],
+#     "isActive": true
+# }'
+
+# curl -X POST http://localhost:8080/auth/login \
+#   -H "Content-Type: application/json" \
+#   -d '{
+#     "username": "secretary1",
+#     "password": "pass123"
+# }'
+
+# curl -X POST http://localhost:8080/auth/register \
+#   -H "Content-Type: application/json" \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZWNyZXRhcnkxIiwiZXhwIjoxNzQzNjI3NjU2LCJpYXQiOjE3NDM1NDEyNTZ9.cQsOWVKKB0cgQ3KY86rDnK2zft3fTSuRP3Gk_QlH_dE" \
+#   -d '{
+#     "username": "security1",
+#     "password": "pass123",
+#     "roles": ["ROLE_SECURITY"],
+#     "shift": "MORNING"
+# }'
+
+# curl -X POST http://localhost:8080/auth/register \
+#   -H "Content-Type: application/json" \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZWNyZXRhcnkxIiwiZXhwIjoxNzQzNjI3NjU2LCJpYXQiOjE3NDM1NDEyNTZ9.cQsOWVKKB0cgQ3KY86rDnK2zft3fTSuRP3Gk_QlH_dE" \
+#   -d '{
+#     "username": "security2",
+#     "password": "pass123",
+#     "roles": ["ROLE_SECURITY"],
+#     "shift": "EVENING"
+# }'
+
+# curl -X POST http://localhost:8080/auth/register \
+#   -H "Content-Type: application/json" \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZWNyZXRhcnkxIiwiZXhwIjoxNzQzNjI3NjU2LCJpYXQiOjE3NDM1NDEyNTZ9.cQsOWVKKB0cgQ3KY86rDnK2zft3fTSuRP3Gk_QlH_dE" \
+#   -d '{
+#     "username": "security3",
+#     "password": "pass123",
+#     "roles": ["ROLE_SECURITY"],
+#     "shift": "NIGHT"
+# }'
+
+# curl -X POST http://localhost:8080/auth/register \
+#   -H "Content-Type: application/json" \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZWNyZXRhcnkxIiwiZXhwIjoxNzQzNjI3NjU2LCJpYXQiOjE3NDM1NDEyNTZ9.cQsOWVKKB0cgQ3KY86rDnK2zft3fTSuRP3Gk_QlH_dE" \
+#   -d '{
+#     "username": "security4",
+#     "password": "pass123",
+#     "roles": ["ROLE_SECURITY"],
+#     "shift": "MORNING"
+# }'
+
+###########################################
+#               NEW ENDPOINTS             #
+###########################################
+
+# curl -X POST http://localhost:8080/auth/register-admin \
+#   -H "Content-Type: application/json" \
+#   -d '{
+#     "username": "admin",
+#     "password": "pass123",
+#     "isActive": true
+# }'
+
+# curl -X POST http://localhost:8080/auth/login \
+#   -H "Content-Type: application/json" \
+#   -d '{"username": "admin", "password": "pass123"}'
+
+# curl -X POST http://localhost:8080/auth/register-secretary \
+#   -H "Content-Type: application/json" \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiZXhwIjoxNzQzODAxMzAwLCJpYXQiOjE3NDM3MTQ5MDB9.xFgS0ImvzVnbQqvU_2NQK0pKGJqKF4rVbX_3Oj_-TF4" \
+#   -d '{
+#     "username": "secretary1",
+#     "password": "pass123",
+#     "isActive": true
+# }'
+
+# curl -X POST http://localhost:8080/auth/register-secretary \
+#   -H "Content-Type: application/json" \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiZXhwIjoxNzQzODAxMzAwLCJpYXQiOjE3NDM3MTQ5MDB9.xFgS0ImvzVnbQqvU_2NQK0pKGJqKF4rVbX_3Oj_-TF4" \
+#   -d '{
+#     "username": "secretary2",
+#     "password": "pass123",
+#     "isActive": true
+# }'
+
+# curl -X POST http://localhost:8080/auth/login \
+#   -H "Content-Type: application/json" \
+#   -d '{
+#     "username": "secretary1",
+#     "password": "pass123"
+# }'
+
+# curl -X POST http://localhost:8080/auth/register-security \
+#   -H "Content-Type: application/json" \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZWNyZXRhcnkxIiwicm9sZXMiOlsiUk9MRV9TRUNSRVRBUlkiXSwiZXhwIjoxNzQzODAxNTIxLCJpYXQiOjE3NDM3MTUxMjF9.qyW30tBGguDpgkEqJaO0l6OhblGN3_jItQJy-N-_MlY" \
+#   -d '{
+#     "username": "security1",
+#     "password": "pass123",
+#     "roles": ["ROLE_SECURITY"],
+#     "isActive": true,
+#     "shift": "MORNING"
+# }'
+
+# curl -X POST http://localhost:8080/auth/register-security \
+#   -H "Content-Type: application/json" \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZWNyZXRhcnkxIiwiZXhwIjoxNzQzNjQ2ODY2LCJpYXQiOjE3NDM1NjA0NjZ9.-uT18XWWfWvJqWLZywdImj4C4kESEwJev7W2EsIV_b4" \
+#   -d '{
+#     "username": "security2",
+#     "password": "pass123",
+#     "isActive": true,
+#     "shift": "EVENING",
+#     "roles": ["ROLE_SECURITY"]
+# }'
+
+# curl -X POST http://localhost:8080/auth/register-security \
+#   -H "Content-Type: application/json" \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZWNyZXRhcnkxIiwiZXhwIjoxNzQzNjQ2ODY2LCJpYXQiOjE3NDM1NjA0NjZ9.-uT18XWWfWvJqWLZywdImj4C4kESEwJev7W2EsIV_b4" \
+#   -d '{
+#     "username": "security3",
+#     "password": "pass123",
+#     "isActive": true,
+#     "shift": "NIGHT",
+#     "roles": ["ROLE_SECURITY"]
+# }'
+# curl -X POST http://localhost:8080/auth/login \
+#   -H "Content-Type: application/json" \
+#   -d '{
+#     "username": "security1",
+#     "password": "pass123"
+# }'
+
+
+# curl -X POST http://localhost:8080/auth/register-security \
+#   -H "Content-Type: application/json" \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZWNyZXRhcnkxIiwiZXhwIjoxNzQzNjQ2ODY2LCJpYXQiOjE3NDM1NjA0NjZ9.-uT18XWWfWvJqWLZywdImj4C4kESEwJev7W2EsIV_b4" \
+#   -d '{
+#     "username": "security4",
+#     "password": "pass123",
+#     "isActive": true,
+#     "shift": "MORNING",
+#     "roles": ["ROLE_SECURITY"]
+# }'
+
+# curl -X POST http://localhost:8080/auth/login \
+#   -H "Content-Type: application/json" \
+#   -d '{
+#     "username": "admin",
+#     "password": "pass123"
+# }'
+
+# curl http://localhost:8080/auth/active-users \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiZXhwIjoxNzQzODAxMzAwLCJpYXQiOjE3NDM3MTQ5MDB9.xFgS0ImvzVnbQqvU_2NQK0pKGJqKF4rVbX_3Oj_-TF4"
+
+# curl -X PUT http://localhost:8080/auth/deactivate/secretary1 \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZWNyZXRhcnkxIiwicm9sZXMiOlsiUk9MRV9TRUNSRVRBUlkiXSwiZXhwIjoxNzQzODAxNTIxLCJpYXQiOjE3NDM3MTUxMjF9.qyW30tBGguDpgkEqJaO0l6OhblGN3_jItQJy-N-_MlY"
+
+# curl -X PUT http://localhost:8080/auth/deactivate/security1 \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZWNyZXRhcnkxIiwicm9sZXMiOlsiUk9MRV9TRUNSRVRBUlkiXSwiZXhwIjoxNzQzODAxNTIxLCJpYXQiOjE3NDM3MTUxMjF9.qyW30tBGguDpgkEqJaO0l6OhblGN3_jItQJy-N-_MlY"
+
+# curl -X PATCH http://localhost:8080/auth/activate/secretary1 \ 
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZWNyZXRhcnkxIiwicm9sZXMiOlsiUk9MRV9TRUNSRVRBUlkiXSwiZXhwIjoxNzQzODAxNTIxLCJpYXQiOjE3NDM3MTUxMjF9.qyW30tBGguDpgkEqJaO0l6OhblGN3_jItQJy-N-_MlY"
+
+
+##############################
+# .          NEW AGAIN       #
+##############################
+
+# curl -X POST http://localhost:8080/auth/register-admin \
+#   -H "Content-Type: application/json" \
+#   -d '{
+#     "username": "admin",
+#     "password": "pass123"
+# }'
+
+# curl -X POST http://localhost:8080/auth/login \
+#   -H "Content-Type: application/json" \
+#   -d '{
+#     "username": "admin",
+#     "password": "pass123"
+# }'
+
+# curl -X POST http://localhost:8080/auth/register-secretary \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiZXhwIjoxNzQzODAxMzAwLCJpYXQiOjE3NDM3MTQ5MDB9.xFgS0ImvzVnbQqvU_2NQK0pKGJqKF4rVbX_3Oj_-TF4" \
+#   -H "Content-Type: application/json" \
+#   -d '{
+#     "username": "secretary1",
+#     "password": "pass123"
+# }'
+
+# curl -X POST http://localhost:8080/auth/register-secretary \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiZXhwIjoxNzQzODAxMzAwLCJpYXQiOjE3NDM3MTQ5MDB9.xFgS0ImvzVnbQqvU_2NQK0pKGJqKF4rVbX_3Oj_-TF4" \
+#   -H "Content-Type: application/json" \
+#   -d '{
+#     "username": "secretary2",
+#     "password": "pass123"
+# }'
+
+# curl -X POST http://localhost:8080/auth/login \
+#   -H "Content-Type: application/json" \
+#   -d '{
+#     "username": "secretary1",
+#     "password": "pass123"
+# }'
+
+# curl -X POST http://localhost:8080/auth/register-security \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZWNyZXRhcnkxIiwiZXhwIjoxNzQzNjUxNzU3LCJpYXQiOjE3NDM1NjUzNTd9.-wvZeq64lgVBLH2hrAKW0cGXRhdwlqbTBddc3J-29h8" \
+#   -H "Content-Type: application/json" \
+#   -d '{
+#     "username": "security1",
+#     "password": "pass123",
+#     "shift": "MORNING"
+# }'
+
+# curl -X POST http://localhost:8080/auth/register-security \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZWNyZXRhcnkxIiwiZXhwIjoxNzQzNjUxNzU3LCJpYXQiOjE3NDM1NjUzNTd9.-wvZeq64lgVBLH2hrAKW0cGXRhdwlqbTBddc3J-29h8" \
+#   -H "Content-Type: application/json" \
+#   -d '{
+#     "username": "security2",
+#     "password": "pass123",
+#     "shift": "EVENING"
+# }'
+
+# curl -X POST http://localhost:8080/auth/register-security \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZWNyZXRhcnkxIiwiZXhwIjoxNzQzNjUxNzU3LCJpYXQiOjE3NDM1NjUzNTd9.-wvZeq64lgVBLH2hrAKW0cGXRhdwlqbTBddc3J-29h8" \
+#   -H "Content-Type: application/json" \
+#   -d '{
+#     "username": "security3",
+#     "password": "pass123",
+#     "shift": "NIGHT"
+# }'
+
+# curl -X POST http://localhost:8080/auth/register-security \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZWNyZXRhcnkxIiwiZXhwIjoxNzQzNjUxNzU3LCJpYXQiOjE3NDM1NjUzNTd9.-wvZeq64lgVBLH2hrAKW0cGXRhdwlqbTBddc3J-29h8" \
+#   -H "Content-Type: application/json" \
+#   -d '{
+#     "username": "security4",
+#     "password": "pass123",
+#     "shift": "EVENING"
+# }'
+
+# curl -X GET http://localhost:8080/auth/active-users \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZWNyZXRhcnkxIiwicm9sZXMiOlsiUk9MRV9TRUNSRVRBUlkiXSwiZXhwIjoxNzQzODAxNTIxLCJpYXQiOjE3NDM3MTUxMjF9.qyW30tBGguDpgkEqJaO0l6OhblGN3_jItQJy-N-_MlY"
+
+# curl -X PATCH http://localhost:8080/auth/deactivate/security1 \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZWNyZXRhcnkxIiwicm9sZXMiOlsiUk9MRV9TRUNSRVRBUlkiXSwiZXhwIjoxNzQzODAxNTIxLCJpYXQiOjE3NDM3MTUxMjF9.qyW30tBGguDpgkEqJaO0l6OhblGN3_jItQJy-N-_MlY"
+
+# curl -X PATCH http://localhost:8080/auth/activate/security1 \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZWNyZXRhcnkxIiwicm9sZXMiOlsiUk9MRV9TRUNSRVRBUlkiXSwiZXhwIjoxNzQzODAxNTIxLCJpYXQiOjE3NDM3MTUxMjF9.qyW30tBGguDpgkEqJaO0l6OhblGN3_jItQJy-N-_MlY"
+
+# curl -X PATCH http://localhost:8080/auth/deactivate/secretary1 \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiZXhwIjoxNzQzODAxMzAwLCJpYXQiOjE3NDM3MTQ5MDB9.xFgS0ImvzVnbQqvU_2NQK0pKGJqKF4rVbX_3Oj_-TF4"
+
+# curl -X PATCH http://localhost:8080/auth/activate/secretary1 \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiZXhwIjoxNzQzODAxMzAwLCJpYXQiOjE3NDM3MTQ5MDB9.xFgS0ImvzVnbQqvU_2NQK0pKGJqKF4rVbX_3Oj_-TF4"
+
+
+#####################################################
+#       WELCOME TO APARTMENT TESTING PHASE          #
+#####################################################
+
+# curl -X POST http://localhost:8080/auth/login \
+#   -H "Content-Type: application/json" \
+#   -d '{
+#     "username": "admin",
+#     "password": "pass123"
+#}'
+
+# curl -X POST http://localhost:8080/auth/login \
+#   -H "Content-Type: application/json" \
+#   -d '{
+#     "username": "secretary2",
+#     "password": "pass123"
+# }'
+
+
+# curl -X POST http://localhost:8080/api/apartments \
+#   -H "Content-Type: application/json" \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTc0MzY1Njg4NCwiaWF0IjoxNzQzNTcwNDg0fQ.b3J0jp1Q4VKdBKZV3ULdna7zcZiZhneUSAhn6gZCm8E" \
+#   -d '{
+#     "name": "Skyline Residency",
+#     "address": "Tower A, Sector 50",
+#     "apartmentType": "3BHK",
+#     "floorNumber": 7
+# }'
+
+# curl -X GET http://localhost:8080/api/apartments \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZWNyZXRhcnkyIiwicm9sZXMiOlsiUk9MRV9TRUNSRVRBUlkiXSwiZXhwIjoxNzQzODMzMDk5LCJpYXQiOjE3NDM3NDY2OTl9.Ag76Beymd8wyVMrd0iB41GiA42E4I930BtJ9vA7WTkE"
+
+# curl -X PUT http://localhost:8080/api/apartments/1 \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiZXhwIjoxNzQzODAxMzAwLCJpYXQiOjE3NDM3MTQ5MDB9.xFgS0ImvzVnbQqvU_2NQK0pKGJqKF4rVbX_3Oj_-TF4" \
+#   -H "Content-Type: application/json" \
+#   -d '{
+#         "name": "Sky Tower",
+#         "address": "Sector 44",
+#         "apartmentType": "4BHK",
+#         "floorNumber": 1
+#       }'
+
+# curl -X DELETE http://localhost:8080/api/apartments/1 \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiZXhwIjoxNzQzODAxMzAwLCJpYXQiOjE3NDM3MTQ5MDB9.xFgS0ImvzVnbQqvU_2NQK0pKGJqKF4rVbX_3Oj_-TF4"
+
+# curl -X PUT http://localhost:8080/api/apartments/2 \
+#   -H "Content-Type: application/json" \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiZXhwIjoxNzQzNzY1NTA1LCJpYXQiOjE3NDM2NzkxMDV9.1se3jbesgSfG-rgT1q6a-QW7semitSHEn6EOFqY6Y4E" \
+#   -d '{
+#     "name": "LALO SALAMANCA",
+#     "address": "MAXICAN",
+#     "apartmentType": "2BHK",
+#     "floorNumber": 4
+# }'
+
+
+#####################################################
+#       WELCOME TO TENANT TESTING PHASE             #
+#####################################################
+
+# curl -X POST http://localhost:8080/auth/login \
+#   -H "Content-Type: application/json" \
+#   -d '{
+#     "username": "admin",
+#     "password": "pass123"
+# }'
+
+# USE secretary2 token for all tenant related operations
+
+
+# curl http://localhost:8080/api/apartments \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTc0MzY2MTUyNSwiaWF0IjoxNzQzNTc1MTI1fQ.mvB-hdGl9MhZh23X8KqZ0XMuzzdaomKLRek3uz7JBYA"
+
+
+# curl http://localhost:8080/auth/me \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTc0MzY2MTUyNSwiaWF0IjoxNzQzNTc1MTI1fQ.mvB-hdGl9MhZh23X8KqZ0XMuzzdaomKLRek3uz7JBYA"
+
+
+# curl -X POST http://localhost:8080/api/tenants \
+#   -H "Content-Type: application/json" \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiZXhwIjoxNzQzNjcwNTM2LCJpYXQiOjE3NDM1ODQxMzZ9.9mnFGus9JqcRPUdg1S35x1YOu3BIiTWynoL4CGo1qqk" \
+#   -d '{
+#     "name": "Ravi Sharma",
+#     "email": "ravi@example.com",
+#     "phone": "9876543210",
+#     "apartmentId": 1
+# }'
+
+# curl -X POST http://localhost:8080/api/tenants \
+#   -H "Content-Type: application/json" \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiZXhwIjoxNzQzNjg2NDYwLCJpYXQiOjE3NDM2MDAwNjB9.qS9aqqIC8OXNmdRHk61QkloSlTj3rkIVu6eTlZg-XIo" \
+#   -d '{
+#     "name": "Ravi Sharma",
+#     "email": "ravi@example.com",
+#     "phone": "9876543210",
+#     "apartmentId": 1
+# }'
+
+# curl -X GET http://localhost:8080/api/tenants \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZWN1cml0eTEiLCJyb2xlcyI6WyJST0xFX1NFQ1VSSVRZIl0sImV4cCI6MTc0MzgwMTcxOSwiaWF0IjoxNzQzNzE1MzE5fQ.AfJeZYukQJ_lLnQOS61EGg9soudoMktzVkwQYLosTck"
+
+# curl -X PUT http://localhost:8080/api/tenants/1 \
+#   -H "Content-Type: application/json" \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiZXhwIjoxNzQzNzY1NTA1LCJpYXQiOjE3NDM2NzkxMDV9.1se3jbesgSfG-rgT1q6a-QW7semitSHEn6EOFqY6Y4E" \
+#   -d '{
+#     "name": "Updated Raviya",
+#     "email": "ravi_updated@example.com",
+#     "phone": "9000000000",
+#     "apartmentId": 1
+# }'
+
+# curl -X DELETE http://localhost:8080/api/tenants/1 \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiZXhwIjoxNzQzNzY1NTA1LCJpYXQiOjE3NDM2NzkxMDV9.1se3jbesgSfG-rgT1q6a-QW7semitSHEn6EOFqY6Y4E"
+
+
+#####################################################
+#       WELCOME TO OWNER TESTING PHASE              #
+#####################################################
+
+#curl -X POST http://localhost:8080/auth/login \
+#   -H "Content-Type: application/json" \
+#   -d '{
+#     "username": "admin",
+#     "password": "pass123"
+# }'
+
+# curl -X POST http://localhost:8080/api/owners \
+#   -H "Content-Type: application/json" \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiZXhwIjoxNzQzNjkxMTc4LCJpYXQiOjE3NDM2MDQ3Nzh9.ad_xsyHvJdLb6wMQImSkUuaIrYjNlRWPuNOsVRf4BS4" \
+#   -d '{
+#     "name": "AKHILESH YADAV",
+#     "email": "akhilesh.yadav@gmail.com",
+#     "phone": "9999888877",
+#     "apartmentIds": [1, 2]
+# }'
+
+# curl -X GET http://localhost:8080/api/owners \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiZXhwIjoxNzQzNzY1NTA1LCJpYXQiOjE3NDM2NzkxMDV9.1se3jbesgSfG-rgT1q6a-QW7semitSHEn6EOFqY6Y4E"
+
+# curl -X PUT http://localhost:8080/api/owners/1 \
+#   -H "Content-Type: application/json" \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiZXhwIjoxNzQzNzY1NTA1LCJpYXQiOjE3NDM2NzkxMDV9.1se3jbesgSfG-rgT1q6a-QW7semitSHEn6EOFqY6Y4E" \
+#   -d '{
+#     "name": "Ayush A. Updated",
+#     "email": "ayush.updated@example.com",
+#     "phone": "8888777766",
+#     "apartmentIds": [2, 3]
+# }'
+
+
+# curl -X DELETE http://localhost:8080/api/owners/1 \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiZXhwIjoxNzQzNzY1NTA1LCJpYXQiOjE3NDM2NzkxMDV9.1se3jbesgSfG-rgT1q6a-QW7semitSHEn6EOFqY6Y4E"
+
+#####################################################
+#       WELCOME TO VISITORS TESTING PHASE           #
+#####################################################
+
+# curl -X POST http://localhost:8080/auth/login \
+#   -H "Content-Type: application/json" \
+#   -d '{
+#     "username": "admin",
+#     "password": "pass123"
+# }'
+
+# curl -X POST http://localhost:8080/api/visitors \
+# -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiZXhwIjoxNzQzNzY1NTA1LCJpYXQiOjE3NDM2NzkxMDV9.1se3jbesgSfG-rgT1q6a-QW7semitSHEn6EOFqY6Y4E" \
+# -H "Content-Type: application/json" \
+# -d '{
+#   "name": "Rakesh Kumar",
+#   "phoneNumber": "9876543210",
+#   "apartmentId": 1
+# }'
+
+# curl -X GET http://localhost:8080/api/visitors \
+#    -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiZXhwIjoxNzQzNzY1NTA1LCJpYXQiOjE3NDM2NzkxMDV9.1se3jbesgSfG-rgT1q6a-QW7semitSHEn6EOFqY6Y4E"
+
+# curl -X POST http://localhost:8080/api/visitors \
+#   -H "Content-Type: application/json" \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiZXhwIjoxNzQzNzY1NTA1LCJpYXQiOjE3NDM2NzkxMDV9.1se3jbesgSfG-rgT1q6a-QW7semitSHEn6EOFqY6Y4E" \
+#   -d '{
+#     "name": "Suraj Nair",
+#     "phoneNumber": "9876512345",
+#     "apartmentId": 1,
+#     "purpose": "Delivery",
+#     "checkInTime": "2025-04-03T17:00:00",
+#     "checkOutTime": "2025-04-03T17:30:00",
+#     "vehicleId": 2,
+#     "idProofType": "Aadhar",
+#     "idProofNumber": "A123456789",
+#     "purposeOfVisit": "Grocery Delivery"
+# }'
+
+# curl -X GET http://localhost:8080/api/visitors \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiZXhwIjoxNzQzNzY1NTA1LCJpYXQiOjE3NDM2NzkxMDV9.1se3jbesgSfG-rgT1q6a-QW7semitSHEn6EOFqY6Y4E"
+
+# curl -X DELETE http://localhost:8080/api/visitors/1 \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiZXhwIjoxNzQzNzY1NTA1LCJpYXQiOjE3NDM2NzkxMDV9.1se3jbesgSfG-rgT1q6a-QW7semitSHEn6EOFqY6Y4E"
+
+# curl -X PUT http://localhost:8080/api/visitors/3 \
+#   -H "Content-Type: application/json" \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiZXhwIjoxNzQzNzY1NTA1LCJpYXQiOjE3NDM2NzkxMDV9.1se3jbesgSfG-rgT1q6a-QW7semitSHEn6EOFqY6Y4E" \
+#   -d '{
+#     "name": "AYUSH AGRAWAL",
+#     "phoneNumber": "9123456789",
+#     "apartmentId": 1,
+#     "purpose": "Meeting Resident",
+#     "checkInTime": "2025-04-03T17:00:00",
+#     "checkOutTime": "2025-04-03T18:00:00",
+#     "vehicleId": 2,
+#     "idProofType": "Driving License",
+#     "idProofNumber": "DL7654321",
+#     "purposeOfVisit": "Catch up with friend"
+# }'
+
+
+#####################################################
+#        WELCOME TO VEHICLS TESTING PHASE           #
+#####################################################
+
+# curl -X POST http://localhost:8080/api/vehicles \
+#   -H "Content-Type: application/json" \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiZXhwIjoxNzQzNzY1NTA1LCJpYXQiOjE3NDM2NzkxMDV9.1se3jbesgSfG-rgT1q6a-QW7semitSHEn6EOFqY6Y4E" \
+#   -d '{
+#     "vehicleNumber": "UP65AB1234",
+#     "vehicleType": "Four Wheeler",
+#     "vehicleColor": "White",
+#     "ownerType": "OWNER",
+#     "ownerId": 1,
+#     "apartmentId": 1
+# }'
+
+# curl -X GET http://localhost:8080/api/vehicles \
+#     -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiZXhwIjoxNzQzNzY1NTA1LCJpYXQiOjE3NDM2NzkxMDV9.1se3jbesgSfG-rgT1q6a-QW7semitSHEn6EOFqY6Y4E"
+
+# curl -X DELETE http://localhost:8080/api/vehicles/1 \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiZXhwIjoxNzQzNzY1NTA1LCJpYXQiOjE3NDM2NzkxMDV9.1se3jbesgSfG-rgT1q6a-QW7semitSHEn6EOFqY6Y4E"
+
+# curl -X POST http://localhost:8080/api/vehicles \
+#   -H "Content-Type: application/json" \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiZXhwIjoxNzQzNzY1NTA1LCJpYXQiOjE3NDM2NzkxMDV9.1se3jbesgSfG-rgT1q6a-QW7semitSHEn6EOFqY6Y4E" \
+#   -d '{
+#     "vehicleNumber": "DL10CD4567",
+#     "vehicleType": "Two Wheeler",
+#     "vehicleColor": "Red",
+#     "ownerType": "VISITOR",
+#     "ownerId": 1,
+#     "apartmentId": 1
+# }'
+
+# curl -X PUT http://localhost:8080/api/vehicles/4 \
+#   -H "Content-Type: application/json" \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZWNyZXRhcnkxIiwicm9sZXMiOlsiUk9MRV9TRUNSRVRBUlkiXSwiZXhwIjoxNzQzNzg5OTExLCJpYXQiOjE3NDM3MDM1MTF9.OXVAjzlUrcau2VW8TcHEqYtkvJe9I9CFWvY623EzUqs" \
+#   -d '{
+#     "vehicleNumber": "UP10CD4444",
+#     "vehicleType": "Three Wheeler",
+#     "vehicleColor": "Blue",
+#     "ownerType": "TENANT",
+#     "ownerId": 1,
+#     "apartmentId": 1
+# }'
+
+# curl -X PUT http://localhost:8080/api/vehicles/1 \
+#   -H "Content-Type: application/json" \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbiIsInJvbGVzIjpbIlJPTEVfQURNSU4iXSwiZXhwIjoxNzQzNzY1NTA1LCJpYXQiOjE3NDM2NzkxMDV9.1se3jbesgSfG-rgT1q6a-QW7semitSHEn6EOFqY6Y4E" \
+#   -d '{
+#     "vehicleNumber": "MM12AB1234",
+#     "vehicleType": "Two Wheeler",
+#     "vehicleColor": "WWHITE",
+#     "ownerType": "OWNER",
+#     "ownerId": 2,
+#     "apartmentId": 2
+# }'
+
+#####################################################
+#        WELCOME TO DRIVERS TESTING PHASE           #
+#####################################################
+
+# curl -X POST http://localhost:8080/api/drivers \
+# -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZWN1cml0eTEiLCJyb2xlcyI6WyJST0xFX1NFQ1VSSVRZIl0sImV4cCI6MTc0MzgwMTcxOSwiaWF0IjoxNzQzNzE1MzE5fQ.AfJeZYukQJ_lLnQOS61EGg9soudoMktzVkwQYLosTck" \
+# -H "Content-Type: application/json" \
+# -d '{
+#   "name": "RAM PYARE",
+#   "idProofType": "Aadhar",
+#   "idProofNumber": "1234-5678-9012",
+#   "contact": "8888477766"
+# }'
+
+# curl -X GET http://localhost:8080/api/drivers \
+#      -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZWN1cml0eTEiLCJyb2xlcyI6WyJST0xFX1NFQ1VSSVRZIl0sImV4cCI6MTc0MzgwMTcxOSwiaWF0IjoxNzQzNzE1MzE5fQ.AfJeZYukQJ_lLnQOS61EGg9soudoMktzVkwQYLosTck"
+
+
+#####################################################
+#     WELCOME TO ENTRY_EXIT_LOG TESTING PHASE       #
+#####################################################
+# curl -X POST http://localhost:8080/api/entry-exit \
+#   -H "Content-Type: application/json" \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZWN1cml0eTEiLCJyb2xlcyI6WyJST0xFX1NFQ1VSSVRZIl0sImV4cCI6MTc0MzgwMTcxOSwiaWF0IjoxNzQzNzE1MzE5fQ.AfJeZYukQJ_lLnQOS61EGg9soudoMktzVkwQYLosTck" \
+#   -d '{
+#     "entryTime": "2025-04-04T14:00:00",
+#     "exitTime": "2025-04-04T15:00:00",
+#     "visitorId": 2,
+#     "vehicleId": 3,
+#     "driverId": 1,
+#     "personCount": 2
+# }'
+
+# curl -X GET "http://localhost:8080/api/entry-exit?page=0&size=10" \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZWN1cml0eTEiLCJyb2xlcyI6WyJST0xFX1NFQ1VSSVRZIl0sImV4cCI6MTc0MzgwMTcxOSwiaWF0IjoxNzQzNzE1MzE5fQ.AfJeZYukQJ_lLnQOS61EGg9soudoMktzVkwQYLosTck
+#✅ 1. Happy Path: Entry with Visitor + Vehicle + Driver
+# curl -X POST http://localhost:8080/api/entry-exit \
+#   -H "Content-Type: application/json" \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZWN1cml0eTEiLCJyb2xlcyI6WyJST0xFX1NFQ1VSSVRZIl0sImV4cCI6MTc0MzgwMTcxOSwiaWF0IjoxNzQzNzE1MzE5fQ.AfJeZYukQJ_lLnQOS61EGg9soudoMktzVkwQYLosTck" \
+#   -d '{
+#     "entryTime": "2025-04-04T16:00:00",
+#     "visitorId": 2,
+#     "vehicleId": 3,
+#     "driverId": 1,
+#     "personCount": 2
+# }'
+
+#✅ 2. Visitor on Foot (no vehicle/driver)
+# curl -X POST http://localhost:8080/api/entry-exit \
+#   -H "Content-Type: application/json" \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZWN1cml0eTEiLCJyb2xlcyI6WyJST0xFX1NFQ1VSSVRZIl0sImV4cCI6MTc0MzgwMTcxOSwiaWF0IjoxNzQzNzE1MzE5fQ.AfJeZYukQJ_lLnQOS61EGg9soudoMktzVkwQYLosTck" \
+#   -d '{
+#     "entryTime": "2025-04-04T17:00:00",
+#     "visitorId": 1,
+#     "personCount": 1
+# }'
+
+#✅ 3. Vehicle without Driver (e.g., owner/tenant car)
+# curl -X POST http://localhost:8080/api/entry-exit \
+#   -H "Content-Type: application/json" \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZWN1cml0eTEiLCJyb2xlcyI6WyJST0xFX1NFQ1VSSVRZIl0sImV4cCI6MTc0MzgwMTcxOSwiaWF0IjoxNzQzNzE1MzE5fQ.AfJeZYukQJ_lLnQOS61EGg9soudoMktzVkwQYLosTck" \
+#   -d '{
+#     "entryTime": "2025-04-04T18:30:00",
+#     "vehicleId": 2
+# }'
+
+#❌ 4. Invalid Visitor ID (nonexistent)
+# curl -X POST http://localhost:8080/api/entry-exit \
+#   -H "Content-Type: application/json" \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZWN1cml0eTEiLCJyb2xlcyI6WyJST0xFX1NFQ1VSSVRZIl0sImV4cCI6MTc0MzgwMTcxOSwiaWF0IjoxNzQzNzE1MzE5fQ.AfJeZYukQJ_lLnQOS61EGg9soudoMktzVkwQYLosTck" \
+#   -d '{
+#     "entryTime": "2025-04-04T19:00:00",
+#     "visitorId": 9999
+# }'
+
+#❌ 5. Missing entryTime
+# curl -X POST http://localhost:8080/api/entry-exit \
+#   -H "Content-Type: application/json" \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZWN1cml0eTEiLCJyb2xlcyI6WyJST0xFX1NFQ1VSSVRZIl0sImV4cCI6MTc0MzgwMTcxOSwiaWF0IjoxNzQzNzE1MzE5fQ.AfJeZYukQJ_lLnQOS61EGg9soudoMktzVkwQYLosTck" \
+#   -d '{
+#     "visitorId": 2
+# }'
+
+# ✅ 6. Valid GET All Logs (pagination)
+curl -X GET "http://localhost:8080/api/entry-exit?page=0&size=5" \
+  -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZWN1cml0eTEiLCJyb2xlcyI6WyJST0xFX1NFQ1VSSVRZIl0sImV4cCI6MTc0MzgwMTcxOSwiaWF0IjoxNzQzNzE1MzE5fQ.AfJeZYukQJ_lLnQOS61EGg9soudoMktzVkwQYLosTck"
+
+#✅ 7. Soft Delete Entry
+# curl -X DELETE http://localhost:8080/api/entry-exit/1 \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZWN1cml0eTEiLCJyb2xlcyI6WyJST0xFX1NFQ1VSSVRZIl0sImV4cCI6MTc0MzgwMTcxOSwiaWF0IjoxNzQzNzE1MzE5fQ.AfJeZYukQJ_lLnQOS61EGg9soudoMktzVkwQYLosTck"
+
+#❌ 8. Delete Already Inactive Entry
+# curl -X DELETE http://localhost:8080/api/entry-exit/1 \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZWN1cml0eTEiLCJyb2xlcyI6WyJST0xFX1NFQ1VSSVRZIl0sImV4cCI6MTc0MzgwMTcxOSwiaWF0IjoxNzQzNzE1MzE5fQ.AfJeZYukQJ_lLnQOS61EGg9soudoMktzVkwQYLosTck"
+
+#✅ 9. Exit Time Logging (manual update){not implemented yet}
+# curl -X PUT http://localhost:8080/api/entry-exit/1/exit \
+#   -H "Content-Type: application/json" \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZWN1cml0eTEiLCJyb2xlcyI6WyJST0xFX1NFQ1VSSVRZIl0sImV4cCI6MTc0MzgwMTcxOSwiaWF0IjoxNzQzNzE1MzE5fQ.AfJeZYukQJ_lLnQOS61EGg9soudoMktzVkwQYLosTck" \
+#   -d '{ "exitTime": "2025-04-04T19:30:00" }'
+
+#⚠️ 10. Security Restrictions Check [sercretary2]
+# curl -X DELETE http://localhost:8080/api/entry-exit/2 \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZWNyZXRhcnkyIiwicm9sZXMiOlsiUk9MRV9TRUNSRVRBUlkiXSwiZXhwIjoxNzQzODMzMDk5LCJpYXQiOjE3NDM3NDY2OTl9.Ag76Beymd8wyVMrd0iB41GiA42E4I930BtJ9vA7WTkE"
+
+#x✅ 1. Create a New Entry Log (Valid Data)
+# curl -X POST http://localhost:8080/api/entry-exit \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZWN1cml0eTEiLCJyb2xlcyI6WyJST0xFX1NFQ1VSSVRZIl0sImV4cCI6MTc0MzgwMTcxOSwiaWF0IjoxNzQzNzE1MzE5fQ.AfJeZYukQJ_lLnQOS61EGg9soudoMktzVkwQYLosTck" \
+#   -H "Content-Type: application/json" \
+#   -d '{
+#     "entryTime": "2025-04-04T19:45:00",
+#     "visitorId": 2,
+#     "vehicleId": 2,
+#     "driverId": 1,
+#     "personCount": 3
+#   }'
+
+#⚠️ 2. Create Entry Without Visitor (Resident Family)
+# curl -X POST http://localhost:8080/api/entry-exit \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZWN1cml0eTEiLCJyb2xlcyI6WyJST0xFX1NFQ1VSSVRZIl0sImV4cCI6MTc0MzgwMTcxOSwiaWF0IjoxNzQzNzE1MzE5fQ.AfJeZYukQJ_lLnQOS61EGg9soudoMktzVkwQYLosTck" \
+#   -H "Content-Type: application/json" \
+#   -d '{
+#     "entryTime": "2025-04-04T19:50:00",
+#     "vehicleId": 2,
+#     "driverId": 1,
+#     "personCount": 2
+#   }'
+#❌ 3. Invalid Visitor ID
+# curl -X POST http://localhost:8080/api/entry-exit \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZWN1cml0eTEiLCJyb2xlcyI6WyJST0xFX1NFQ1VSSVRZIl0sImV4cCI6MTc0MzgwMTcxOSwiaWF0IjoxNzQzNzE1MzE5fQ.AfJeZYukQJ_lLnQOS61EGg9soudoMktzVkwQYLosTck" \
+#   -H "Content-Type: application/json" \
+#   -d '{
+#     "entryTime": "2025-04-04T20:20:00",
+#     "visitorId": 999,
+#     "vehicleId": 2,
+#     "driverId": 1,
+#     "personCount": 1
+#   }'

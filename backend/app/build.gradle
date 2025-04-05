@@ -1,0 +1,50 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.2.2'
+    id 'io.spring.dependency-management' version '1.1.4'
+    id 'application'
+}
+
+group = 'com.ams'
+version = '1.0.0'
+java {
+    sourceCompatibility = '17'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // ✅ Spring Boot Core Dependencies
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+    // ✅ Security & JWT
+    implementation 'com.auth0:java-jwt:4.2.1'      // ✅ Auth0 JWT for token authentication
+    implementation 'org.springframework.security:spring-security-crypto' // ✅ For password encryption
+
+    // ✅ Database
+    runtimeOnly 'com.mysql:mysql-connector-j'
+
+    // ✅ Lombok
+    implementation 'org.projectlombok:lombok:1.18.30'
+    annotationProcessor 'org.projectlombok:lombok:1.18.30'
+
+    // ✅ JSON Processing
+    implementation 'com.fasterxml.jackson.core:jackson-databind'
+
+    // ✅ Testing
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.mockito:mockito-core'  // ✅ For mocking security tests
+}
+
+application {
+    mainClass = 'com.ams.ApartmentManagementSystemApplication'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
