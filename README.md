@@ -1,56 +1,61 @@
-# 🏢 Apartment Management System
+<h1 align="center">🏢 Apartment Management System</h1>
+<p align="center">A complete modern web solution for managing residential apartments using <strong>Spring Boot</strong> and <strong>Next.js</strong>.</p>
 
-A full-stack **Apartment Management System** designed to manage owners, tenants, vehicles, visitors, entry-exit logs, and more. Built with **Spring Boot**, **MySQL**, **JWT Authentication**, and **Next.js (React + Tailwind CSS)** for a smooth modern UI experience.
-
----
-
-## 📁 Project Structure
-
-
-
-
----
-
-## 🛠️ Technologies Used
-
-### 📦 Backend
-- Spring Boot 3
-- Spring Security + JWT
-- JPA + Hibernate
-- MySQL
-- Lombok
-- Maven
-
-### 💻 Frontend
-- Next.js 14 (App Router)
-- React + TypeScript
-- Tailwind CSS 4
-- Axios
+<p align="center">
+  <img src="https://img.shields.io/badge/Java-17-blue.svg"/>
+  <img src="https://img.shields.io/badge/Spring_Boot-3.2-green.svg"/>
+  <img src="https://img.shields.io/badge/Next.js-14-black.svg"/>
+  <img src="https://img.shields.io/badge/TailwindCSS-4.0-blue.svg"/>
+</p>
 
 ---
 
-## 🔐 Authentication System
+## 🚀 About the Project
 
-- Role-Based Access: `ADMIN`, `SECRETARY`, `SECURITY`
-- Token-Based Auth using JWT
-- Dynamic Token validation via Spring Security Filter
-- Endpoint restrictions via `@PreAuthorize`
+The **Apartment Management System** is a full-stack web application designed to streamline the administration of apartment complexes including:
 
----
-
-## 🚀 Getting Started
-
-### ✅ Prerequisites
-- Node.js (18+)
-- MySQL
-- Java 17+
-- Maven
+- 🔐 User Authentication (JWT)
+- 🏘️ Apartment, Owner, Tenant, Vehicle, Visitor Management
+- 🚦 Entry/Exit Log with Vehicle, Driver Tracking
+- 👨‍👩‍👧‍👦 Family Member auto-mapping
+- 🧠 Role-based Access: `ADMIN`, `SECRETARY`, `SECURITY`
 
 ---
 
-### 🧪 Backend Setup
+## 🗂️ Project Structure
+
+
+---
+
+## 💡 Features
+
+| Module           | Description                                                   | Access Roles                        |
+|------------------|---------------------------------------------------------------|-------------------------------------|
+| 👤 Auth           | Admin creates Secretary, Secretary creates Security          | Admin > Secretary > Security        |
+| 🏢 Apartment       | Manage apartments, link to owners/tenants                    | Secretary                           |
+| 👨 Owner          | Manage owners, assign apartments, auto-create self as family | Secretary                           |
+| 👩 Tenant         | Manage tenants, assign apartments                            | Secretary                           |
+| 🚗 Vehicle        | Assign vehicles to visitor, owner, tenant, or family         | Secretary, Security (view)          |
+| 🙋 Visitor        | Check-in/out visitor, link vehicle if applicable             | Security                            |
+| 📋 Entry/Exit     | Logs for vehicles & drivers for all user types               | Security                            |
+| 👨‍👩‍👧‍👦 FamilyMember | Auto-managed via owner/tenant creation                      | Secretary                           |
+| 🚙 Driver         | Manage entry drivers (linked to vehicle log)                 | Secretary                           |
+
+---
+
+## 🔐 Authentication
+
+✔️ JWT Based  
+✔️ Role-Based Method Protection  
+✔️ Token Injection via Spring Security Filter  
+✔️ Username/Password + Role check on login
+
+---
+
+## ⚙️ Setup Instructions
+
+### 📦 Backend – Spring Boot + Gradle
 
 ```bash
 cd backend
-# configure your MySQL in application.properties
-./mvnw spring-boot:run
+./gradlew bootRun
