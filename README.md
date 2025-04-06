@@ -139,7 +139,7 @@ apartment-management-system/
 
 ## 👨‍💻 Author
 
-Developed with ❤️ by:
+Developed with  by:
 
 ### **Akhilesh Yadav**  
 **Full Stack Java Developer** | Passionate about Modern Architecture & Clean Code
@@ -161,7 +161,6 @@ Developed with ❤️ by:
 
 ---
 
-📄 **License**  
-MIT © 2025 – Akhilesh Yadav
+
 
 🚀 Ready to scale your apartment administration? Clone this repo and get started today!
