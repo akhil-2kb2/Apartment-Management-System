@@ -643,8 +643,8 @@
 # }'
 
 # ✅ 6. Valid GET All Logs (pagination)
-curl -X GET "http://localhost:8080/api/entry-exit?page=0&size=5" \
-  -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZWN1cml0eTEiLCJyb2xlcyI6WyJST0xFX1NFQ1VSSVRZIl0sImV4cCI6MTc0MzgwMTcxOSwiaWF0IjoxNzQzNzE1MzE5fQ.AfJeZYukQJ_lLnQOS61EGg9soudoMktzVkwQYLosTck"
+# curl -X GET "http://localhost:8080/api/entry-exit?page=0&size=5" \
+#   -H "Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzZWN1cml0eTEiLCJyb2xlcyI6WyJST0xFX1NFQ1VSSVRZIl0sImV4cCI6MTc0MzgwMTcxOSwiaWF0IjoxNzQzNzE1MzE5fQ.AfJeZYukQJ_lLnQOS61EGg9soudoMktzVkwQYLosTck"
 
 #✅ 7. Soft Delete Entry
 # curl -X DELETE http://localhost:8080/api/entry-exit/1 \
