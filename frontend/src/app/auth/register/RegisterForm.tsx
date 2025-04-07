@@ -12,7 +12,7 @@ export default function RegisterForm({ role }: RegisterFormProps) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [shift, setShift] = useState<Shift>('MORNING');
-  const router = useRouter();
+  const router = useRouter();   
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
