@@ -147,7 +147,7 @@ Developed with  by:
 - 🧠 Believer in solving real-world problems with code  
 - 🔄 Obsessed with modularity, reusability & clean architecture  
 - 📫 Connect with me: [LinkedIn](https://www.linkedin.com/in/akhileshyadavak2kb2/)  
-- 🌐 Portfolio: [portfolio]()  
+- 🌐 Portfolio: [portfolio](https://portfolio-akhilesh-yadav.vercel.app/)  
 - 🐙 GitHub: [github.com](https://github.com/akhil-2kb2)
 
 ---
