@@ -163,4 +163,7 @@ Developed with  by:
 
 
 
-🚀 Ready to scale your apartment administration? Clone this repo and get started today!
+||  🚀 Ready to scale your apartment administration? Clone this repo and get started today! ||
+
+
+---
